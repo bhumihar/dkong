@@ -387,6 +387,12 @@ def main():
 					score=screen.getscore()
 					score-=50
 					break
+			if(pl.gety()==28 and pl.getx()==1):
+				os.system("clear")
+				print "Bravo!!! You saved your Queen"
+				print 'You get 3 lives ,So Total no: of lives:3'
+				lives=3
+				break
 			print "Your Score:"
 			print screen.getscore()
 
