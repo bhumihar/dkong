@@ -100,6 +100,7 @@ class Screen:
 		os.system("clear")
 		
 		self.printscreen()
+	
 	def printplspace(self,x,y,ch):
 		self.__a[x][y]=ch
 		for i in range(2,5):
@@ -176,7 +177,7 @@ class Player(Person):
 		sc.printplspace(self.__x,self.__y,' ')
 		time.sleep(0.01)
 
-		# fl=0
+		
 		if(ch=='w' or ch=='W'):
 			if(sc.checkstairs(self.__x,self.__y)):
 				self.__x-=1
@@ -300,8 +301,10 @@ class Fireball:
 				firemv=0
 		sc.printpl(self.__x,self.__y,'O')
 		time.sleep(0.01)
+	
 	def getx(self):
 		return self.__x
+	
 	def gety(self):
 		return self.__y
 
@@ -315,6 +318,7 @@ cnt=0
 fl=0  
 firefl=0  
 score=0
+
 def main():
 	# print 
 	while(1):
@@ -370,7 +374,7 @@ def main():
 					lives-=1
 					os.system("clear")
 					score=screen.getscore()
-					score-=50
+					score-=25
 					break
 			pl.move(ch,screen)
 			if(firefl==1):	
@@ -388,9 +392,11 @@ def main():
 					score-=50
 					break
 			if(pl.gety()==28 and pl.getx()==1):
+				score=screen.getscore()
+				score+=50
 				os.system("clear")
 				print "Bravo!!! You saved your Queen"
-				print 'You get 3 lives ,So Total no: of lives:3'
+				print 'You get 50 bonus points'
 				lives=3
 				break
 			print "Your Score:"
@@ -399,7 +405,7 @@ def main():
 
 
 
-	print "Game Over: Your Final Score is:",
+	print "Ooops!!! Game Over: Your Final Score was:",
 	print screen.getscore()
 if __name__ == "__main__":
 	main()
